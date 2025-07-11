@@ -1,0 +1,6 @@
+# Ignore logs and backups
+logs/
+full_backups/
+
+# macOS system files
+.DS_Store

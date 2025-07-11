@@ -1,0 +1,10 @@
+stages:
+  - backup
+
+rsync_backup:
+  stage: backup
+  script:
+    - chmod +x rsync_backup.sh
+    - ./rsync_backup.sh
+  only:
+    - schedules
