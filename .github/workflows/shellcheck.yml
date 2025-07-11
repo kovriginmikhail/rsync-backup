@@ -1,0 +1,23 @@
+name: ShellCheck Lint
+
+on:
+  push:
+    paths:
+      - 'rsync_backup.sh'
+  pull_request:
+    paths:
+      - 'rsync_backup.sh'
+
+jobs:
+  shellcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install ShellCheck
+        run: sudo apt-get install -y shellcheck
+
+      - name: Run ShellCheck
+        run: shellcheck rsync_backup.sh
+        
