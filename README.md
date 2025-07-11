@@ -4,6 +4,9 @@
 [![Shell](https://img.shields.io/badge/Bash-%3E%3D5.0-blue)](https://www.gnu.org/software/bash/)
 [![Last Backup](https://img.shields.io/badge/Last_Backup-Automated-orange?logo=rsync)](https://gitlab.com)
 [![CI Status](https://img.shields.io/badge/GitLab-CI_ready-yellow?logo=gitlab)](https://gitlab.com)
+[![ShellCheck](https://github.com/kovriginmikhail/rsync-backup/actions/workflows/shellcheck.yml/badge.svg)](https://github.com/kovriginmikhail/rsync-backup/actions/workflows/shellcheck.yml)
+[![shfmt](https://github.com/kovriginmikhail/rsync-backup/actions/workflows/shfmt.yml/badge.svg)](https://github.com/kovriginmikhail/rsync-backup/actions/workflows/shfmt.yml)
+[![Release](https://github.com/kovriginmikhail/rsync-backup/actions/workflows/release.yml/badge.svg)](https://github.com/kovriginmikhail/rsync-backup/actions/workflows/release.yml)
 
 A smart and safe way to synchronize files with backup protection — powered by `rsync`.  
 This Bash script ensures that **no file is lost during sync** by backing up everything that would be deleted.
