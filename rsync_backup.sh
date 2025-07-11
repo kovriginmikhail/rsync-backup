@@ -19,17 +19,17 @@ echo "" | tee -a "$LOG_FILE"
 
 # === Find and copy files that will be deleted ===
 echo "[INFO] Looking for files that will be deleted..." | tee -a "$LOG_FILE"
-rsync -av --delete --dry-run "$SRC" "$DST" \
-  | grep '^deleting ' \
-  | cut -d' ' -f2- \
-  | while read -r file; do
-      SRC_PATH="$DST/$file"
-      if [ -f "$SRC_PATH" ]; then
-          echo "[DELETE] Backing up deleted file: $file" | tee -a "$LOG_FILE"
-          mkdir -p "$BACKUP_DIR/$(dirname "$file")"
-          cp --preserve=all "$SRC_PATH" "$BACKUP_DIR/$file"
-      fi
-    done
+rsync -av --delete --dry-run "$SRC" "$DST" |
+	grep '^deleting ' |
+	cut -d' ' -f2- |
+	while read -r file; do
+		SRC_PATH="$DST/$file"
+		if [ -f "$SRC_PATH" ]; then
+			echo "[DELETE] Backing up deleted file: $file" | tee -a "$LOG_FILE"
+			mkdir -p "$BACKUP_DIR/$(dirname "$file")"
+			cp --preserve=all "$SRC_PATH" "$BACKUP_DIR/$file"
+		fi
+	done
 
 # === Perform actual synchronization with logging ===
 echo "" | tee -a "$LOG_FILE"
