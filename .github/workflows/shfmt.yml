@@ -1,0 +1,23 @@
+name: Shell Format Check
+
+on:
+  push:
+    paths: ['*.sh']
+  pull_request:
+    paths: ['*.sh']
+
+jobs:
+  shfmt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install shfmt
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y shfmt
+
+      - name: Run shfmt (check only)
+        run: |
+          shfmt -d .
+          
